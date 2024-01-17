@@ -186,7 +186,7 @@ workflows:
   version: 2
   deploy_pipeline:
     jobs:
-      - traditional_deployment_test_app
+      - traditional_deployment_test_app:
       - traditional_deployment_app_to_railway:
           requires:
             - traditional_deployment_test_app
