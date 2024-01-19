@@ -56,7 +56,7 @@ jobs:
       - run:
           name: Deploy to Railway App (You must set RAILWAY_TOKEN env var)
           command: |
-            cd traditional_deployment/house-prices-api && railway up --detach --service deserted-throat
+            cd traditional_deployment/house-prices-api && railway up --detach --service fragile-event
 
   traditional_deployment_test_and_upload_regression_model:
     <<: *defaults
@@ -93,7 +93,7 @@ jobs:
       - run:
           name: Build and run Dockerfile (see https://docs.railway.app/deploy/dockerfiles)
           command: |
-            cd containerized_deployment && railway up --detach --service deserted-throat
+            cd containerized_deployment && railway up --detach --service fragile-event
 
   test_regression_model_py37:
     docker:
@@ -186,7 +186,7 @@ workflows:
   version: 2
   deploy_pipeline:
     jobs:
-      - traditional_deployment_test_app:
+      - traditional_deployment_test_app
       - traditional_deployment_app_to_railway:
           requires:
             - traditional_deployment_test_app
